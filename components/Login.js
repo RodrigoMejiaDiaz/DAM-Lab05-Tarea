@@ -28,12 +28,8 @@ export default class Login extends Component {
     }
   };
 
-  changeTextInput = text => {
-    this.setState({textValue: text});
-  };
-
-  changeTextInput2 = text2 => {
-    this.setState({textValue2: text2});
+  changeTextInput = (text, name) => {
+    this.setState({[name]: text});
   };
 
   render() {
@@ -50,7 +46,7 @@ export default class Login extends Component {
 
         <TextInput
           style={styles.textInput}
-          onChangeText={text => this.changeTextInput(text)}
+          onChangeText={text => this.changeTextInput(text, 'textValue')}
           value={this.state.textValue}
         />
 
@@ -59,7 +55,7 @@ export default class Login extends Component {
         <TextInput
           style={styles.textInput}
           secureTextEntry={true}
-          onChangeText={text2 => this.changeTextInput2(text2)}
+          onChangeText={text => this.changeTextInput(text, 'textValue2')}
           value={this.state.textValue2}
         />
 
